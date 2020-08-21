@@ -1,4 +1,6 @@
-
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 
 findAllURL = function changeAllURL(text){
   var current = window.location.href;
@@ -16,12 +18,11 @@ findAllURL = function changeAllURL(text){
     div.style.background = "red";
     div.style.color = "white";
     div.zIndex = "100000";
-    // div.style.opacity = "1";
-    div.innerHTML = "KURWA WRESZCIE";
+    div.innerHTML = "Działa";
     div.style.fontSize = "3rem";
 
     let overlay = document.createElement("div");
-    overlay.className = "kupa";
+    overlay.id = "overlay";
     overlay.style.position =  "fixed";
     overlay.style.opacity =  "1";
     // overlay.style.transition =  "200ms ease-in-out";
@@ -37,13 +38,26 @@ findAllURL = function changeAllURL(text){
 
     overlay.appendChild(div);
     document.body.appendChild(overlay);
+
+
   }
 }
 
 
 
+function doStuff()
+{
+  findAllURL("https://www.youtube.com/");
+  findAllURL("https://www.facebook.com/");
 
-findAllURL("https://www.youtube.com/");
-findAllURL("https://www.facebook.com/");
+  setTimeout(continueExecution, 10000) //wait ten seconds before continuing
+}
+
+function continueExecution()
+{
+  document.getElementById("overlay").outerHTML = "";
+}
 // findAllURL("https://www.google.com/");
+
+doStuff();
 
