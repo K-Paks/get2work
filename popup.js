@@ -1,10 +1,7 @@
-function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
-
 findAllURL = function changeAllURL(text){
   var current = window.location.href;
   if(current.startsWith(text)){
+
     document.body.style.pointerEvents = "none";
     document.body.style.overflow = "hidden";
 
@@ -41,23 +38,33 @@ findAllURL = function changeAllURL(text){
 
 
   }
-}
-
+};
 
 
 function doStuff()
 {
+
+  let test = document.createElement("test");
+  test.innerHTML = "<iframe src=\"silence.mp3\" allow=\"autoplay\" id=\"audio\" style=\"display: none\"></iframe>";
+  document.body.appendChild(test);
+
+  let url = chrome.runtime.getURL('audio.mp3');
+  let audio = new Audio(url);
+  audio.play();
+
   findAllURL("https://www.youtube.com/");
   findAllURL("https://www.facebook.com/");
 
-  setTimeout(continueExecution, 10000) //wait ten seconds before continuing
+  setTimeout(continueExecution, 2000)
 }
 
 function continueExecution()
 {
   document.getElementById("overlay").outerHTML = "";
+  document.body.style.pointerEvents = "all";
+    document.body.style.overflow = "visible";
+
 }
-// findAllURL("https://www.google.com/");
 
 doStuff();
 
