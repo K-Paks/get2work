@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Get2work",
+  "version": "1.0.0",
+  "description": "GET TO WORK U LAZY BASTARD",
+  "content_scripts": [
+    {
+      "js": [
+        "popup.js"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+}
