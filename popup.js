@@ -50,13 +50,12 @@ doStuff();
 function doStuff()
 {
     doAutoplay();
-    // check(function () {
-    //     continueExecution();
-    // }, function () {
-    //     textTimer = setInterval(onTick, 300);
-    // });
-    textTimer = setInterval(onTick, 800);
-    setTimeout(continueExecution, 50000);
+    check(function () {
+        continueExecution();
+    }, function () {
+        textTimer = setInterval(onTick, 1000);
+    });
+    setTimeout(continueExecution, 7000);
 
 }
 
@@ -97,7 +96,6 @@ function onTick() {
     }
     span[char].classList.add('shown');
     span[char].style.opacity = "1";
-    span[char].style.zIndex = "100000";
 
 
     char++;
