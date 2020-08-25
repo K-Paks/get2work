@@ -10,6 +10,7 @@ blockThePage = function changeAllURL(){
     div.zIndex = "100000";
     div.style.fontSize = "8rem";
     div.style.fontWeight = "bolder";
+    div.style.opacity = "1";
     div.innerHTML = "<span>GET TO WORK</span>";
 
     let overlay = document.createElement("div");
@@ -34,11 +35,11 @@ blockThePage();
 let char = 0;
 const text = document.getElementById("get2workText");
 const strText = text.textContent;
-const splitText = strText.split("_");
+const splitText = strText.split(" ");
 text.textContent = "";
 
 for (let i = 0; i < splitText.length; i++) {
-text.innerHTML += "<span>" + splitText[i] + "</span>"
+text.innerHTML += "<span style='opacity: 0'>" + splitText[i] + "</span>"
 }
 
 const span = text.querySelectorAll('span');
@@ -54,7 +55,8 @@ function doStuff()
     // }, function () {
     //     textTimer = setInterval(onTick, 300);
     // });
-    setTimeout(continueExecution, 5000);
+    textTimer = setInterval(onTick, 800);
+    setTimeout(continueExecution, 50000);
 
 }
 
@@ -93,9 +95,9 @@ function onTick() {
         spanShown.classList.remove('shown');
         spanShown.style.opacity = "0";
     }
-
     span[char].classList.add('shown');
     span[char].style.opacity = "1";
+    span[char].style.zIndex = "100000";
 
 
     char++;
