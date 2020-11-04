@@ -9,8 +9,8 @@
         "popup.js"
       ],
       "matches": [
-        "https://www.facebook.com/",
-        "https://youtube.com/"
+        "https://www.facebook.com/*",
+        "https://www.youtube.com/*"
       ]
     }
   ],

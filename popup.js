@@ -55,7 +55,7 @@ function doStuff()
     }, function () {
         textTimer = setInterval(onTick, 1000);
     });
-    setTimeout(continueExecution, 7000);
+    setTimeout(continueExecution, 30000);
 
 }
 
